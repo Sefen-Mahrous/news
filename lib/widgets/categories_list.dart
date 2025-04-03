@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news/widgets/category_card.dart';
 
-class CategaroyList extends StatelessWidget {
-  const CategaroyList({super.key});
+class CategoriesList extends StatelessWidget {
+  const CategoriesList({super.key});
 
   @override
   Widget build(BuildContext context) {
