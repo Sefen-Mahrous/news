@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/widgets/category_card.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -32,6 +33,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
+      body: Center(child: CatagoryCard()),
     );
   }
 }
