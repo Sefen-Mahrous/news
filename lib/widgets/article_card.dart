@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news/models/article_model.dart';
 
 class ArticleCard extends StatelessWidget {
-  const ArticleCard({super.key});
+  final ArticleModel articleModel;
+  const ArticleCard({super.key, required this.articleModel});
 
   @override
   Widget build(BuildContext context) {
@@ -9,10 +11,10 @@ class ArticleCard extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: Image.asset('assets/Ferreira.jpeg'),
+          child: Image.asset(articleModel.image),
         ),
         Text(
-          'this is a very long text does not have mean but i put it for test the code that i will write here thak you for your will reading iam sorry for lost your time',
+          articleModel.title,
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 18,
@@ -22,10 +24,11 @@ class ArticleCard extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         Text(
-          'this is a very long text does not have mean but i put it for test the code that i will write here this is a very long text does not have mean but i put it for test the code that i will write here this is a very long text does not have mean but i put it for test the code that i will write here',
+          articleModel.subTitle,
           style: TextStyle(fontSize: 12, color: Colors.grey[850]),
           maxLines: 2,
         ),
+        SizedBox(height: 20),
       ],
     );
   }
