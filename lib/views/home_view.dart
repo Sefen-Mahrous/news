@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news/widgets/article_card.dart';
 import 'package:news/widgets/categories_list.dart';
 
 class HomeView extends StatelessWidget {
@@ -33,7 +34,12 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-      body: CategoriesList(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Column(
+          children: [CategoriesList(), SizedBox(height: 15), ArticleCard()],
+        ),
+      ),
     );
   }
 }
