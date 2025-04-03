@@ -24,6 +24,7 @@ class CategoriesList extends StatelessWidget {
         itemBuilder: (context, index) {
           return CatagoryCard(categoryModel: categoryList[index]);
         },
+        physics: BouncingScrollPhysics(),
       ),
     );
   }

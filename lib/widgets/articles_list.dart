@@ -38,13 +38,13 @@ class ArticlesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: articlesModel.length,
-        itemBuilder: (context, index) {
-          return ArticleCard(articleModel: articlesModel[index]);
-        },
-      ),
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(childCount: articlesModel.length, (
+        context,
+        index,
+      ) {
+        return ArticleCard(articleModel: articlesModel[index]);
+      }),
     );
   }
 }
