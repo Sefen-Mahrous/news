@@ -5,18 +5,21 @@ class CatagoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 220,
-      height: 130,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage('assets/business.avif'),
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: Container(
+        width: 220,
+        height: 130,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/business.avif'),
+          ),
         ),
-      ),
-      child: Center(
-        child: Text('businsses', style: TextStyle(color: Colors.white)),
+        child: Center(
+          child: Text('businsses', style: TextStyle(color: Colors.white)),
+        ),
       ),
     );
   }
