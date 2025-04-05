@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.transparent,
         title: Center(
           child: RichText(
             text: TextSpan(
@@ -45,7 +45,7 @@ class HomeView extends StatelessWidget {
                 slivers: [
                   SliverToBoxAdapter(child: CategoriesList()),
                   SliverToBoxAdapter(child: SizedBox(height: 15)),
-                  ArticlesListViewBuilder(),
+                  ArticlesListViewBuilder(category: 'world'),
                 ],
               ),
             ),
