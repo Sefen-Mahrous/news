@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news/widgets/articles_list.dart';
+import 'package:news/widgets/articles_list_builder.dart';
 import 'package:news/widgets/categories_list.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,6 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.grey,
         title: Center(
           child: RichText(
             text: TextSpan(
@@ -34,16 +35,22 @@ class HomeView extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: [
-            SliverToBoxAdapter(child: CategoriesList()),
-            SliverToBoxAdapter(child: SizedBox(height: 15)),
-            ArticlesList(),
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5, right: 12, left: 12),
+              child: CustomScrollView(
+                physics: BouncingScrollPhysics(),
+                slivers: [
+                  SliverToBoxAdapter(child: CategoriesList()),
+                  SliverToBoxAdapter(child: SizedBox(height: 15)),
+                  ArticlesListViewBuilder(),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

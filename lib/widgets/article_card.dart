@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:news/models/article_model.dart';
 
@@ -9,12 +10,18 @@ class ArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.asset(articleModel.image),
+        CachedNetworkImage(
+          height: 250,
+          fit: BoxFit.cover,
+          imageUrl: articleModel.image ?? 'assets/default.jpg',
+          placeholder:
+              (context, url) => Center(child: CircularProgressIndicator()),
+          errorWidget:
+              (context, url, error) => Image.asset('assets/defult.jpg'),
         ),
+
         Text(
-          articleModel.title,
+          articleModel.title ?? '',
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 18,
@@ -24,7 +31,7 @@ class ArticleCard extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         Text(
-          articleModel.subTitle,
+          articleModel.subTitle ?? '',
           style: TextStyle(fontSize: 12, color: Colors.grey[850]),
           maxLines: 2,
         ),
